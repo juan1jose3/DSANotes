@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/main.css">
+<title>Main menu</title>
+<style>
+.hero-section {
+    text-align: center;
+    padding: 60px 20px;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.hero-title {
+    font-size: 3em;
+    font-weight: 800;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    line-height: 1.2;
+}
+.hero-subtitle {
+    font-size: 1.3em;
+    margin-bottom: 40px;
+    opacity: 0.9;
+}
+.cta-button {
+    font-size: 1.2em;
+    padding: 15px 40px;
+    margin: 10px;
+}
+.features {
+    margin-top: 40px;
+}
+.feature-item {
+    padding: 20px;
+    margin: 10px 0;
+}
+</style>
+</head>
+<body>
+<div data-role="page">
+    <div data-role="header" data-theme="b">
+        <h1>Fast-Vi</h1>
+    </div>
+
+    <div data-role="content">
+        <div class="hero-section">
+            <h1 class="hero-title">Fast-Vi</h1>
+            <p class="hero-subtitle">Get your flagship car now</p>
+            
+            <a href="view/vehicleList.php" data-role="button" data-icon="arrow-r" data-iconpos="right" data-theme="b" class="cta-button">View Vehicles</a>
+            
+            <div class="features">
+                <div data-role="collapsible-set" data-theme="b" data-content-theme="b">
+                    <div data-role="collapsible">
+                        <h3>Premium Selection</h3>
+                        <p class="feature-item">Browse through our curated collection of flagship vehicles from top brands worldwide.</p>
+                    </div>
+                    
+                    <div data-role="collapsible">
+                        <h3>Easy Management</h3>
+                        <p class="feature-item">Add, edit, and manage your vehicle inventory with our intuitive CRUD system.</p>
+                    </div>
+                    
+                    <div data-role="collapsible">
+                        <h3>Mobile Optimized</h3>
+                        <p class="feature-item">Access your vehicle catalog anywhere, anytime with our mobile-friendly interface.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div data-role="footer" data-position="fixed" data-theme="b">
+        <h4>Vehicle CRUD System - jQuery Mobile</h4>
+    </div>
+</div>
+</body>
+</html>

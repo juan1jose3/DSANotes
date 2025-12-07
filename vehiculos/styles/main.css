@@ -1,0 +1,34 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: #A1A1AA;;
+}
+
+:root {
+  --bs-font-sans-serif: "Urbanist", sans-serif;
+  --bs-body-font-family: "Urbanist", sans-serif;
+}
+
+h1, h2, h3 {
+  color: #F5F5F5; 
+}
+.ui-page {
+    background-image: url("lastBack.svg") !important;
+    background-size: cover !important;
+    background-repeat: no-repeat, repeat !important;
+    background-attachment: fixed !important;
+}
+
+.ui-content {
+    background: transparent !important;
+}
+
+body{    
+  background-image: url("lastBack.svg");
+  background-size: cover;
+  background-repeat: no-repeat, repeat;
+  
+  font-family: "Urbanist", sans-serif !important;
+
+}
