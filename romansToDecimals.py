@@ -16,7 +16,7 @@ def romansToDecimals(s):
         currentNumber = symbols[s[i]]
         currentNumberPlus = symbols[s[i+1]]
         if currentNumber < currentNumberPlus:
-             number -= currentNumber # Roman numerals are single digits not pairs IV is not a pair is I V
+            number -= currentNumber # Roman numerals are single digits not pairs IV is not a pair is I V
         else:
        
             number += symbols[s[i]]

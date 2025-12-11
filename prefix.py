@@ -1,25 +1,34 @@
 def getPrefix(strs):
-    counter = 0
+    strs.sort()
+
+    if len(strs) < 2:
+        return strs[0]
         
-    prefix = ""
-    if strs[0]:
-        first_item = strs[0]
-        size = len(first_item)
-        if size > 1:
-            size = 2
+    initialPrefix = ""
+    endPrefix = ""
+    longest = ""
+    for i in range(0,len(strs[0])):
+
+        initialPrefix = strs[0][i]
+        endPrefix = strs[len(strs)-1][i]
+
+        if initialPrefix == endPrefix:
+            longest += initialPrefix
+        
         else:
-            return first_item
-        for i in range(size):
-            prefix += first_item[i]
-    else:
-        return ""
+            break
         
-    for i in strs:
-        if i.startswith(prefix):
-            counter += 1
-        if counter > 1:
-            return prefix
-    return ""
+    if longest == "":
+        return ""
+    else:
+        return longest
+
+    
+    
+
+        
+           
+        
     
 print(getPrefix(["flower","flow","flight"]))
         
