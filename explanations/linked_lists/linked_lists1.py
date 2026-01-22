@@ -25,7 +25,10 @@ class Linked_list:
         self.size = 0
 
 
+    def get_root(self):
+        return self.root
     
+
     def get_size(self):
         return self.size
 
@@ -149,14 +152,65 @@ class Linked_list:
         slow = self.root
 
         for _ in range(k):
-            if fast.get_next() != None:
-                fast = fast.get_next()
+            fast = fast.get_next()
+
         
         while fast:
             fast = fast.get_next()
             slow = slow.get_next()
+        
+        return f"kth elemt = {slow.get_data()}"
 
-        return slow.get_data()
+    def insert_after_given_value(self,target, num_to_insert):
+        current_node = self.root
+        
+
+        while current_node:
+            if current_node.get_data() == target:
+                new_node = Node(num_to_insert,current_node.get_next())
+                current_node.set_next(new_node)
+                return "Inserted"
+
+            current_node = current_node.get_next()
+
+    def find_kth_from_start(self, k_from_start):
+        counter = 0
+        current_node = self.root
+
+        while current_node:
+            if counter == k_from_start:
+                return current_node.get_data()
+            
+            counter += 1
+            current_node = current_node.get_next()
+
+    def are_the_same(self,linked_list_a, linked_list_b):
+        pointer_a = linked_list_a.get_root()
+        pointer_b = linked_list_b.get_root()
+
+        while pointer_a and pointer_b:
+            if pointer_a.get_data() != pointer_b.get_data():
+                return False
+            pointer_a = pointer_a.get_next()
+            pointer_b = pointer_b.get_next()
+
+        if pointer_a == None and pointer_b == None:
+            return True
+
+        return False
+
+            
+
+
+    
+
+
+            
+
+
+
+        
+
     
     
 
@@ -169,14 +223,33 @@ class Linked_list:
 
 
 linked_list = Linked_list()
+linked_list_b = Linked_list()
 
-linked_list.add(5)
-linked_list.add(8)
-linked_list.add(12)
-linked_list.add(10)
 
-print(linked_list.insert_end(80))
-print(linked_list.insert_end(25))
+linked_list.add(2)
+linked_list.add(1)
+
+#linked_list_b.add(5)
+linked_list_b.add(2)
+linked_list_b.add(1)
+
+print(linked_list.are_the_same(linked_list,linked_list_b))
+
+#linked_list.add(50)
+#linked_list.add(40)
+#linked_list.add(30)
+#linked_list.add(20)
+#linked_list.add(10)
+
+#print(linked_list.find_kth_from_start(2))
+#print(linked_list.find_kth_element(2))
+#linked_list.add(5)
+#linked_list.add(3)
+#linked_list.add(1)
+#linked_list.insert_after_given_value(3,4)
+
+#print(linked_list.insert_end(80))
+#print(linked_list.insert_end(25))
 #print(linked_list.delete_from_end())
 
 #print(linked_list.find_middle())
@@ -184,7 +257,7 @@ print(linked_list.insert_end(25))
 #print(linked_list.get_last_element())
 
 #print(linked_list.get_size_by_walking())
-print(linked_list.find_kth_element(1))
+#print(linked_list.find_kth_element(1))
 #print(linked_list.get_second_to_last())
 #linked_list.traversal()
 #print(linked_list.get_size())
