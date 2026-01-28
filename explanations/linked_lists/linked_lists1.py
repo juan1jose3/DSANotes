@@ -198,42 +198,89 @@ class Linked_list:
             return True
 
         return False
+    
+
+    def find_node(self,data_to_find):
+        current_node = self.root
+
+        while current_node:
+            if current_node.get_data() == data_to_find:
+                return current_node 
+            current_node = current_node.get_next()
+
+    def get_last_node(self):
+        current_node = self.root
+
+        while current_node:
+            if current_node.get_next() == None:
+                return current_node
+            current_node = current_node.get_next()
+
+
+    def find_shared_node(self,linked_list_a, linked_list_b):
+        pointer_a = linked_list_a.get_root()
+        pointer_b = linked_list_b.get_root()
+
+        # this is known as two pointer switching
+        while pointer_a != pointer_b:
+            
+            if pointer_a == None:
+                pointer_a = linked_list_b.get_root()
+            else:
+                pointer_a = pointer_a.get_next()
+
+
+            if pointer_b == None:
+                pointer_b = linked_list_a.get_root()
+            # if the pointer is not null we just move
+            # if we update and move at the same time we skip the root id the next linked list
+            else:
+                pointer_b = pointer_b.get_next()
+            
+        
+
+        # all the time we use pointers we only perform one operation at the time either we move or update, never the two,
+
+        if pointer_a == pointer_b:
+            return pointer_b.get_data()
+        
+        return False
+    
+
+      
+
 
             
 
 
     
-
-
-            
-
 
 
         
 
-    
-    
-
-
-
-
-
-
-            
-
-
-linked_list = Linked_list()
+linked_list_a = Linked_list()
 linked_list_b = Linked_list()
 
 
-linked_list.add(2)
-linked_list.add(1)
+linked_list_a.add(6)
+linked_list_a.add(5)
+linked_list_a.add(4)
+linked_list_a.add(3)
+linked_list_a.add(2)
+linked_list_a.add(1)
 
-#linked_list_b.add(5)
-linked_list_b.add(2)
-linked_list_b.add(1)
+linked_list_b.add(9)
 
-print(linked_list.are_the_same(linked_list,linked_list_b))
+intersection_node = linked_list_a.find_node(4)
+linked_list_b.get_last_node().set_next(intersection_node)
+
+
+#linked_list_a.traversal()
+#linked_list_b.traversal()
+
+print(linked_list_a.find_shared_node(linked_list_a,linked_list_b))
+
+#print(linked_list.are_the_same(linked_list,linked_list_b))
 
 #linked_list.add(50)
 #linked_list.add(40)
