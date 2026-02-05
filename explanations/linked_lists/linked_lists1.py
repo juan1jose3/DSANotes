@@ -90,7 +90,7 @@ class Linked_list:
         fast = self.root
         slow = self.root
         
-        while fast and fast.get_next(): # we allways check befor moving
+        while fast and fast.get_next(): # we allways check before moving
             
             fast = fast.get_next()
             fast = fast.get_next()
@@ -247,7 +247,62 @@ class Linked_list:
         return False
     
 
-      
+    def swap_neighboring_nodes(self):
+        current_node = self.root
+        next_node = current_node.get_next()
+
+        while current_node and current_node.get_next():
+            
+            if next_node:
+                temp = current_node.get_data()
+                current_node.set_data(next_node.get_data())
+                next_node.set_data(temp)
+            
+            current_node = current_node.get_next().get_next() # we advance twice
+            
+            
+            if current_node != None:
+                next_node = current_node.get_next()
+
+
+    def move_tail_to_head(self):
+        
+        current_node = self.root
+        prev_node = None
+
+
+        while current_node:
+            if current_node.get_next() == None and self.root:
+                current_node.set_next(self.root)
+                prev_node.set_next(None)
+                self.root = current_node
+                return "shifted"
+            prev_node = current_node
+            current_node = current_node.get_next()
+
+
+    def move_tail_to_head_nodes(self):
+        current_node = self.root
+        prev_node = None
+        next_node = None
+
+        while current_node:
+
+            next_node = current_node.get_next()
+            current_node.set_next(prev_node)
+            prev_node = current_node
+            current_node = next_node
+
+
+        self.root = prev_node
+
+
+
+        
+            
+            
+
+        
 
 
             
@@ -259,26 +314,35 @@ class Linked_list:
         
 
 linked_list_a = Linked_list()
-linked_list_b = Linked_list()
+#linked_list_b = Linked_list()
 
-
-linked_list_a.add(6)
-linked_list_a.add(5)
 linked_list_a.add(4)
 linked_list_a.add(3)
 linked_list_a.add(2)
 linked_list_a.add(1)
 
-linked_list_b.add(9)
 
-intersection_node = linked_list_a.find_node(4)
-linked_list_b.get_last_node().set_next(intersection_node)
+"""
+linked_list_a.add(5)
+linked_list_a.add(4)
+linked_list_a.add(3)
+linked_list_a.add(2)
+linked_list_a.add(1)
+"""
+#linked_list_a.swap_neighboring_nodes()
 
+#linked_list_a.traversal()
 
+#intersection_node = linked_list_a.find_node(4)
+#linked_list_b.get_last_node().set_next(intersection_node)
+
+linked_list_a.move_tail_to_head_nodes()
+
+linked_list_a.traversal()
 #linked_list_a.traversal()
 #linked_list_b.traversal()
 
-print(linked_list_a.find_shared_node(linked_list_a,linked_list_b))
+#print(linked_list_a.find_shared_node(linked_list_a,linked_list_b))
 
 #print(linked_list.are_the_same(linked_list,linked_list_b))
 
