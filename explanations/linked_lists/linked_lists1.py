@@ -281,7 +281,7 @@ class Linked_list:
             current_node = current_node.get_next()
 
 
-    def move_tail_to_head_nodes(self):
+    def reverse(self):
         current_node = self.root
         prev_node = None
         next_node = None
@@ -296,19 +296,48 @@ class Linked_list:
 
         self.root = prev_node
 
+    def delete_kth_element(self,k):
+        dummy_node = Node(None,self.root)
+        fast = dummy_node
+        slow = dummy_node
 
+        for _ in range(k+1):
+            fast = fast.get_next()
 
         
+        while fast:
+            slow = slow.get_next()
+            fast = fast.get_next()
+
+        slow.set_next(slow.get_next().get_next())
+        self.root = dummy_node.get_next()
+        self.size -= 1
+
+    # floyd's cycle finding Algorithm
+    def cycle_detection(self):
+        slow = self.root
+        fast = self.root
+
+        while fast != None and fast.get_next() != None:
             
-            
+            fast = fast.get_next().get_next()
+            slow = slow.get_next()
 
-        
+            if fast == slow:
+                #return slow.get_data() we return the node of collision
+                # here I find the entrance
+
+                fast = self.root
+
+                while fast != slow:
+                    slow = slow.get_next()
+                    fast = fast.get_next()
+                return slow.get_data()
+
+        return "NO CYCLE"
 
 
-            
 
-
-    
 
 
         
@@ -316,11 +345,28 @@ class Linked_list:
 linked_list_a = Linked_list()
 #linked_list_b = Linked_list()
 
-linked_list_a.add(4)
-linked_list_a.add(3)
-linked_list_a.add(2)
-linked_list_a.add(1)
 
+
+linked_list_a.add(40)
+linked_list_a.add(30)
+linked_list_a.add(20)
+linked_list_a.add(10)
+# List is: 10 -> 20 -> 30 -> 40 -> None
+
+# 2. CREATE THE CYCLE
+# Let's make the last node (40) point back to the second node (20)
+last = linked_list_a.get_last_node()
+target = linked_list_a.find_node(20)
+
+last.set_next(target) 
+# Now the list is: 10 -> 20 -> 30 -> 40 -> (back to 20...)
+print(linked_list_a.cycle_detection())
+#linked_list_a.add(50)
+#linked_list_a.add(40)
+#linked_list_a.add(30)
+#linked_list_a.add(20)
+#linked_list_a.add(10)
+#linked_list_a.delete_kth_element(1)
 
 """
 linked_list_a.add(5)
@@ -336,9 +382,10 @@ linked_list_a.add(1)
 #intersection_node = linked_list_a.find_node(4)
 #linked_list_b.get_last_node().set_next(intersection_node)
 
-linked_list_a.move_tail_to_head_nodes()
+#linked_list_a.reverse()
 
-linked_list_a.traversal()
+
+#linked_list_a.traversal()
 #linked_list_a.traversal()
 #linked_list_b.traversal()
 

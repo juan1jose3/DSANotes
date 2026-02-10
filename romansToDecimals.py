@@ -1,4 +1,4 @@
-def romansToDecimals(s):
+def romansToDecimals(s:str):
     symbols = {
             "I":1,
             "V":5,
