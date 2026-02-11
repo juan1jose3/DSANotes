@@ -51,8 +51,8 @@ class Linked_list:
                 self.size -= 1
                 return True
             else:
-                prev_node = current_node
                 current_node = current_node.get_next()
+                prev_node = current_node
         return False
     
     def find(self,data):
