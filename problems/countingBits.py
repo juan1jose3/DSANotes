@@ -26,7 +26,4 @@ def countBits(n:int):
     return count
 
 
-
-
-
 print(countBits(8))
