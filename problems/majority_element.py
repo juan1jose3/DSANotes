@@ -4,22 +4,23 @@ def majorityElement(nums):
   
 
 
-    counter = 1
+    counter = 0
     candidate = nums[0]
     current = 0
 
     for current in nums:
-        if counter == 0 and candidate != current:
-            candidate = current
 
         if current == candidate:
             counter += 1
         else:
             counter -= 1
-
-    
-    if counter == 0 and candidate != current:
+        
+        if counter <= 0 and candidate != current:
             candidate = current
+            counter = 1
+
+
+
     return candidate
         
 
@@ -31,4 +32,4 @@ def majorityElement(nums):
 
 
 
-print(majorityElement([6,5,5]))
+print(majorityElement([1,3,1,1,4,1,1,5,1,1,6,2,2]))
