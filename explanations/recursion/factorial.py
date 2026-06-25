@@ -2,6 +2,7 @@ def factorial(n):
     if n == 0:
         return 1
     
-    return n * factorial(n-1)
+    return factorial(n-1) * n
 
-print(factorial(10))
+
+print(factorial(6))
