@@ -1,14 +1,15 @@
 def list_sum(list):
-    size = len(list) - 1
-
-
-    if size < 0:
+    
+    if len(list) == 0:
         return 0
-
-    counter = list[size]
-    return counter + list_sum(list[:size]) 
+    
+    if len(list) == 1:
+        return list[0]
+    
+    return list[0] + list_sum(list[1:])
+    
 
 
     
 
-print(list_sum([1, 2, 3, 4]))
+print(list_sum([4]))
