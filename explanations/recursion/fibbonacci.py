@@ -7,4 +7,4 @@ def fib(number):
     
     return fib(number - 1) + fib(number - 2)
 
-print(fib(10))
+print(fib(40))
