@@ -97,7 +97,7 @@ tree.insert(4)
 tree.insert(2)
 
 #tree.inorder_traversal()
-#tree.preorder_traversal()
+tree.preorder_traversal()
 
 #tree.postorder_traversal()
 
