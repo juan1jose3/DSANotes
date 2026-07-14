@@ -6,7 +6,7 @@ class Node:
 
 
 
-def insert(node, value):
+def insert(node, value): 
     if not node:
         return Node(value)
     
